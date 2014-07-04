@@ -26,7 +26,7 @@
        [{:keys [type expected actual diffs message] :as event}]
        (with-test-out
          (inc-report-counter :fail)
-         (println "\nFAIL in" (testing-vars-str event))
+         (println "\n \u001b[31m FAIL \u001b[0m in" (testing-vars-str event))
          (when (seq *testing-contexts*) (println (testing-contexts-str)))
          (when message (println message))
          (binding [*out* (pp/get-pretty-writer *out*)]
